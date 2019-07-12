@@ -16,10 +16,13 @@ library(scales)
 #'
 #' @param input name of the cleaned datafile;
 #'     Must contain:
-#'      -a column named "Compound";
-#'      -a column named "Metabolite";
-#'      -and all the columns sample from <sampleStart> to the end of the file;
-#'       the rest doesn't matter and the names are optional, as long as the column position is entered.
+#' \itemize{
+#' \item a column "Compound";
+#' \item a column "Metabolite";
+#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' }
+#' the rest doesn't matter and the names are optional, as long as the column position is entered.
+#'
 #' @param output default <input>.pdf, name of the final pdf file;
 #' @param na default FALSE, FALSE removes the untargeted meatabolite from the plots;
 #' @param numberByGraph default 1, number of metabolite violin plots by graph window;
@@ -298,10 +301,13 @@ violinPlotQC<- function(input,
 #'       the rest doesn't matter and the names are optional, as long as the column position is entered..
 #' @param inputImputed name of the imputed datafile;
 #'     Must contain:
-#'      -a column named "Compound";
-#'      -a column named "Metabolite";
-#'      -and all the columns sample from <sampleStart> to the end of the file;
-#'       the rest doesn't matter and the names are optional, as long as the column position is entered.
+#' \itemize{
+#' \item a column "Compound";
+#' \item a column "Metabolite";
+#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' }
+#'the rest doesn't matter and the names are optional, as long as the column position is entered.
+#'
 #' @param output default <input>.pdf, name of the final pdf file;
 #' @param na default FALSE, FALSE removes the untargeted meatabolite from the plots;
 #' @param numberByGraph default 1, number of metabolite violin plots by graph window;

@@ -11,11 +11,13 @@ violinPlotQC(input, output = paste0(strsplit(input, ".", fixed =
 }
 \arguments{
 \item{input}{name of the cleaned datafile;
-Must contain:
- -a column named "Compound";
- -a column named "Metabolite";
- -and all the columns sample from <sampleStart> to the end of the file;
-  the rest doesn't matter and the names are optional, as long as the column position is entered.}
+    Must contain:
+\itemize{
+\item a column "Compound";
+\item a column "Metabolite";
+\item and all the columns sample from <sampleStart> to the end of the file;
+}
+the rest doesn't matter and the names are optional, as long as the column position is entered.}
 
 \item{output}{default <input>.pdf, name of the final pdf file;}
 

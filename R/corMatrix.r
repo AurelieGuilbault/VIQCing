@@ -7,24 +7,31 @@ library(gplots)
 #' Correlation Matrix and tree
 #'
 #' Creates the correlation matrix and tree for a metabolomic dataset.
-#' Produces:
-#' - <filename>.pdf, containing the correlation matrix
-#' - <filename>_pairs.txt, containing the correlation pairs above <upperLimit> or less than <lowerLimit>
+#' Produces the following files:
+#' \itemize{
+#' \item <filename>.pdf, containing the correlation matrix
+#' \item <filename>_pairs.txt, containing the correlation pairs above <upperLimit> or less than <lowerLimit>;
+#' }
 #'
 #' The significance of the correlation is noted with a "*" in the tile.
 #' Conditions for the Pearson's Correlation Test:
-#'   - Independent samples;
-#'   - normal distribution of the data
-#'       *Since this condition is not true for most metabolite,
+#' \itemize{
+#' \item Independent samples;
+#' \item normal distribution of the data; *
+#' }
+#' *Since this condition is not true for most metabolite,
 #'        the test is set as a Spearman's rank Correlation test by default.*
 #'
 #' @param filename name of the datafile
 #'     Must contain:
-#'       -a column named "Compound";
-#'       -a column named "Metabolite";
-#'       -and all the columns sample from <sampleStart> to the end of the file;
-#'       the rest doesn't matter and the names are optional, as long as the column position is
-#'       entered.;
+#' \itemize{
+#' \item a column "Compound";
+#' \item a column "Metabolite";
+#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' }
+#' the rest doesn't matter and the names are optional, as long as the column position is
+#' entered.;
+#'
 #' @param output default <dataset filename>.pdf, name of the pdf file;
 #' @param na default FALSE, FALSE removes the untargeted meatabolite;
 #' @param landscape default FALSE, orientation of the pdf file;

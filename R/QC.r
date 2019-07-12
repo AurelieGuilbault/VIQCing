@@ -29,22 +29,27 @@ QCcustomization <- function(data, COMPOUND=TRUE, COHORTE=TRUE, METABOLITE=TRUE, 
 #' Data Quality Control
 #'
 #' Quality control for metabolomic data. Will remove metabolites with more than a determined thershold of missing values for all patient.
-#' Produces the foloowing files:
-#'   -"QC_ <data> .txt": Summary of the QC;
-#'   -"REMOVED_QC_<data>.txt": Summary of the removed metabolite;
-#'   - output, cleaned dataset file(optional);
-#'   -"REMOVED_<output>.txt", the removed set of metabolite (optional)
+#' Produces the following files:
+#' \itemize{
+#' \item "QC_ <data> .txt": Summary of the QC;
+#' \item "REMOVED_QC_<data>.txt": Summary of the removed metabolite;
+#' \item output, cleaned dataset file(optional);
+#' \item "REMOVED_<output>.txt", the removed set of metabolite (optional)
+#'
+#' }
 #'
 #' Can be used on any kind of file containing rows with x (gene, metabolite, etc.) and column with y (Sample, patients, etc.).
 #'
-#' @param data name of the initial metabolomic dataset file.
-#'     Must contain:
-#'       -a column "Compound";
-#'       -a column "Metabolite";
-#'       -and all the columns sample from <sampleStart> to the end of the file;
-#'       the rest doesn't matter and the names "Compound" and "Metabolite" are optional, as long as the column position is specified in params. ;
+#' @param data name of the initial metabolomic dataset file.  Must contain:
+#' \itemize{
+#' \item a column "Compound";
+#' \item a column "Metabolite";
+#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' }
+#' the rest doesn't matter and the names "Compound" and "Metabolite" are optional, as long as the column position is specified in params. ;
+#'
 #' @param output default NULL, name of the output cleaned dataset to produce if not NULL;
-#' @param cohort default "sample", name of the patient cohort;
+#' @param cohort default "sample", name of the sample's cohort;
 #' @param compound default NULL, position of the compound column if named otherwise;
 #' @param metabolite default NULL, position of the metabolite column if named otherwise;
 #' @param sampleStart default 6, the index of the 1st sample column.

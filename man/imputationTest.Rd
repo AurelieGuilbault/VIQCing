@@ -12,26 +12,19 @@ imputationTest(output = NULL, input, k = 2, method = "knn",
 \arguments{
 \item{output}{default NULL, name of the test results file if not NULL}
 
-\item{input}{file containing the test dataset;
- Must contain:
- -a column named "Compound",
- -a column named "Metabolite",
--and all the columns sample from <sampleStart> to the end of the file.
- the rest doesn't matter and the names are optional, as long as the column position is entered.
-MUST BE COMPLETE for accurate results}
+\item{input}{file containing the test dataset; Must contain:
+\itemize{
+\item a column "Compound";
+\item a column "Metabolite";
+\item and all the columns sample from <sampleStart> to the end of the file;
+}
+the rest doesn't matter and the names are optional, as long as the column position is entered.
+*MUST BE COMPLETE (no NA values) for accurate results}
 
 \item{k}{default 2, the k used for the knn imputation;}
 
-\item{method}{default "knn", the chosen method for replacing the missing values. Can be:
-- "knn";
--"RF";
--"QRILC";
--"SVD";
--"mean";
--"median";
--"HM" ;
-- or "0".
-See Details for each method explications.}
+\item{method}{default "knn", the chosen method for replacing the missing values. Can be "knn", "RF",
+"QRILC", "SVD", "mean", "median", "HM" or "0". See Details.}
 
 \item{npcs}{default 3, npcs for SVD method;}
 
@@ -60,21 +53,24 @@ resDf, the result NRMSE dataframe.
 }
 \description{
 Test imputation accuracy for the given dataset with different method options. Compute the NRMSE values for the desired number of test.
-Produces an output <filename>_Accuracy.txt with the columns
--"Method";
--"missing_proportion";
--"transformation";
-- and	"NRMSE"
-if asked.
+If asked, produces an output <filename>_Accuracy.txt with the columns
+\itemize{
+\item "Method";
+\item "missing_proportion";
+\item "transformation";
+\item  and	"NRMSE"
+}
 }
 \details{
 Will compute de NRMSE (Normalized Root Mean Squared Error) for an imputation test.
 Available methods:
-- "knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
--"RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
--"QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;
--"SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;;
--"mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row.;
+\itemize{
+\item "knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
+\item "RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
+\item "QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;
+\item "SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;
+\item "mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row;
+}
 }
 \examples{
 for a dataset with the following header ; Compound, m/z, Metabolite, RT, Sample #1, ...

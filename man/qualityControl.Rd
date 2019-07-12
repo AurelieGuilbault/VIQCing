@@ -8,16 +8,17 @@ qualityControl(data, output = NULL, cohort = "", missing = 0.2,
   compound = NULL, metabolite = NULL, sampleStart = 6)
 }
 \arguments{
-\item{data}{name of the initial metabolomic dataset file.
-Must contain:
-  -a column "Compound";
-  -a column "Metabolite";
-  -and all the columns sample from <sampleStart> to the end of the file;
-  the rest doesn't matter and the names "Compound" and "Metabolite" are optional, as long as the column position is specified in params. ;}
+\item{data}{name of the initial metabolomic dataset file.  Must contain:
+\itemize{
+\item a column "Compound";
+\item a column "Metabolite";
+\item and all the columns sample from <sampleStart> to the end of the file;
+}
+the rest doesn't matter and the names "Compound" and "Metabolite" are optional, as long as the column position is specified in params. ;}
 
 \item{output}{default NULL, name of the output cleaned dataset to produce if not NULL;}
 
-\item{cohort}{default "sample", name of the patient cohort;}
+\item{cohort}{default "sample", name of the sample's cohort;}
 
 \item{compound}{default NULL, position of the compound column if named otherwise;}
 
@@ -34,15 +35,7 @@ a list, containing the cleaned dataset and the QC dataframe
 }
 }
 \description{
-Quality control for metabolomic data. Will remove metabolites with more than a determined thershold of missing values for all patient.
-Produces the foloowing files:
-  -"QC_ <data> .txt": Summary of the QC;
-  -"REMOVED_QC_<data>.txt": Summary of the removed metabolite;
-  - output, cleaned dataset file(optional);
-  -"REMOVED_<output>.txt", the removed set of metabolite (optional)
-}
-\details{
-Can be used on any kind of file containing rows with x (gene, metabolite, etc.) and column with y (Sample, patients, etc.).
+Data Quality Control
 }
 \examples{
 for a dataset with the following header ; Compound, m/z, Metabolite, RT, Sample #1, ...

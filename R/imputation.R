@@ -11,30 +11,26 @@ library(imputeLCMD)
 #'
 #' Impute the given dataset with different method options.
 #' Produces <filename>_imputed.txt, containing the imputed dataset;
+#' See Details for available Imputation Methods
 #'
-#' Available methods:
-#' -"knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
-#' -"RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
-#' -"QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;;
-#' -"SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;;
-#' -"mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row.;
+#' Available imputation methods:
+#' \itemize{
+#' \item "knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
+#' \item "RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
+#' \item "QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;
+#' \item "SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;
+#' \item "mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row;
+#' }
 #'
 #' @param file file containing the dataset to impute;
-#'       Must contain:
-#'       -a column named "Compound",
-#'       -a column named "Metabolite",
-#'      -and all the columns sample from <sampleStart> to the end of the file.
+#' \itemize{
+#' \item a column "Compound";
+#' \item a column "Metabolite";
+#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' }
 #'       the rest doesn't matter and the names are optional, as long as the column position is entered.
-#' @param method default "knn", the chosen method for replacing the missing values. Can be:
-#' -"knn";
-#' -"RF";
-#' -"QRILC";
-#' -"SVD";
-#' -"mean";
-#' -"median";
-#' -"HM" ;
-#' - or "0".
-#' See Details for each method explications.
+#' @param method default "knn", the chosen method for replacing the missing values. Can be "knn", "RF",
+#'  "QRILC", "SVD", "mean", "median", "HM" or "0". See Details.
 #'
 #' @param k default 2, the k used for the knn imputation;
 #' @param npcs default 3, npcs for SVD method;
@@ -212,39 +208,36 @@ imputation <- function(file,
 #' Test for the various methods
 #'
 #' Test imputation accuracy for the given dataset with different method options. Compute the NRMSE values for the desired number of test.
-#' Produces an output <filename>_Accuracy.txt with the columns
-#' -"Method";
-#' -"missing_proportion";
-#' -"transformation";
-#' - and	"NRMSE"
-#' if asked.
+#' If asked, produces an output <filename>_Accuracy.txt with the columns
+#' \itemize{
+#' \item "Method";
+#' \item "missing_proportion";
+#' \item "transformation";
+#' \item  and	"NRMSE"
+#' }
+#'
 #'
 #' Will compute de NRMSE (Normalized Root Mean Squared Error) for an imputation test.
 #' Available methods:
-#' - "knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
-#' -"RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
-#' -"QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;
-#' -"SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;;
-#' -"mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row.;
+#' \itemize{
+#' \item "knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
+#' \item "RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
+#' \item "QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;
+#' \item "SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;
+#' \item "mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row;
+#' }
 #'
-#' @param input file containing the test dataset;
-#'       Must contain:
-#'       -a column named "Compound",
-#'       -a column named "Metabolite",
-#'      -and all the columns sample from <sampleStart> to the end of the file.
-#'       the rest doesn't matter and the names are optional, as long as the column position is entered.
-#'      MUST BE COMPLETE for accurate results
+#' @param input file containing the test dataset; Must contain:
+#' \itemize{
+#' \item a column "Compound";
+#' \item a column "Metabolite";
+#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' }
+#' the rest doesn't matter and the names are optional, as long as the column position is entered.
+#' *MUST BE COMPLETE (no NA values) for accurate results
 #' @param output default NULL, name of the test results file if not NULL
-#' @param method default "knn", the chosen method for replacing the missing values. Can be:
-#' - "knn";
-#' -"RF";
-#' -"QRILC";
-#' -"SVD";
-#' -"mean";
-#' -"median";
-#' -"HM" ;
-#' - or "0".
-#' See Details for each method explications.
+#' @param method default "knn", the chosen method for replacing the missing values. Can be "knn", "RF",
+#'  "QRILC", "SVD", "mean", "median", "HM" or "0". See Details.
 #' @param nTest, default 10, number of test to loop;
 #' @param k default 2, the k used for the knn imputation;
 #' @param npcs default 3, npcs for SVD method;

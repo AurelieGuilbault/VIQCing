@@ -10,24 +10,17 @@ imputation(file, k = 2, method = "knn", npcs = 3, sigma = 0.1,
 }
 \arguments{
 \item{file}{file containing the dataset to impute;
- Must contain:
- -a column named "Compound",
- -a column named "Metabolite",
--and all the columns sample from <sampleStart> to the end of the file.
- the rest doesn't matter and the names are optional, as long as the column position is entered.}
+\itemize{
+\item a column "Compound";
+\item a column "Metabolite";
+\item and all the columns sample from <sampleStart> to the end of the file;
+}
+      the rest doesn't matter and the names are optional, as long as the column position is entered.}
 
 \item{k}{default 2, the k used for the knn imputation;}
 
-\item{method}{default "knn", the chosen method for replacing the missing values. Can be:
--"knn";
--"RF";
--"QRILC";
--"SVD";
--"mean";
--"median";
--"HM" ;
-- or "0".
-See Details for each method explications.}
+\item{method}{default "knn", the chosen method for replacing the missing values. Can be "knn", "RF",
+"QRILC", "SVD", "mean", "median", "HM" or "0". See Details.}
 
 \item{npcs}{default 3, npcs for SVD method;}
 
@@ -51,14 +44,17 @@ df, the imputed dataset as a dataframe.
 \description{
 Impute the given dataset with different method options.
 Produces <filename>_imputed.txt, containing the imputed dataset;
+See Details for available Imputation Methods
 }
 \details{
-Available methods:
--"knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
--"RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
--"QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;;
--"SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;;
--"mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row.;
+Available imputation methods:
+\itemize{
+\item "knn": From the \code{impute} package, use the k nearest neighboors to impute the values;
+\item "RF": From the \code{missForest} package, use RandomForest algorithm to impute the values;
+\item "QRILC": From the \code{imputeLCMD} package, use Quantile regression to impute the values;
+\item "SVD": From the \code{pcaMethods} package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;
+\item "mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row;
+}
 }
 \examples{
 for a dataset with the following header ; Compound, m/z, Metabolite, RT, Sample #1, ...
