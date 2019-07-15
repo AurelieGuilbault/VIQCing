@@ -292,7 +292,7 @@ imputationTest <- function(output=NULL, input,
   outputAccuracyFile <- output
 
   #### Load complete dataset ##################################################
-  data <-read.table("dummySet.txt", header=TRUE,sep="\t")
+  data <-read.table(input, header=TRUE,sep="\t")
 
 
 
