@@ -1,0 +1,22 @@
+---
+title: "VIQCing"
+author: "Aurelie Guilbault"
+date: "17/07/2019"
+output: html_document
+---
+
+# Introduction
+
+The *VIQCing* (Visualization, Imputation, Quality Control) package has been made to help processing Metabolomic Data. It contains a robust pipeline that can be adapted depending on the input type and it needs.
+
+# Download
+
+Source code can be downloaded from github. You can use 
+```
+git clone https://github.com/AurelieGuilbault/VIQCing.git
+```
+to obtain the last update.
+You can install in Rstudio with 
+```
+devtools::install_github("AurelieGuilbault/VIQCing") 
+```
