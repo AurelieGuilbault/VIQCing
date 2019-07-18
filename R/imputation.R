@@ -227,14 +227,12 @@ imputation <- function(file,
 #' \item "mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row;
 #' }
 #'
-#' @param input file containing the test dataset; Must contain:
+#' @param input file containing the test dataset; Should contain:
 #' \itemize{
-#' \item a column "Compound";
-#' \item a column "Metabolite";
-#' \item and all the columns sample from <sampleStart> to the end of the file;
+#' \item all the columns sample from <sampleStart> to the end of the file;
 #' }
-#' the rest doesn't matter and the names are optional, as long as the column position is entered.
 #' *MUST BE COMPLETE (no NA values) for accurate results
+#' 
 #' @param output default NULL, name of the test results file if not NULL
 #' @param method default "knn", the chosen method for replacing the missing values. Can be "knn", "RF",
 #'  "QRILC", "SVD", "mean", "median", "HM" or "0". See Details.
@@ -276,7 +274,8 @@ imputation <- function(file,
 #' @import imputeLCMD
 #'
 #' @export
-imputationTest <- function(output=NULL, input,
+imputationTest <- function(input,
+                           output=NULL, 
                            k=2, method="knn",
                            npcs=3,
                            sigma=0.1,

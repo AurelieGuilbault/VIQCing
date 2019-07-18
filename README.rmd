@@ -106,8 +106,7 @@ You can use the NRMSE function to evaluate the accuracy of the imputation:
 # Only input the Samples, not the compound/metabolite columns
 VIQCing::NRMSE(result[,3:dim(result)[2]], dat[,3:dim(dat)[2]])
 ```
-You can also use the imputationTest() function, wh
+You can also use the imputationTest() function, which will produce a more complete output of the NRMSE when asked. It is advised to test most of the methods and transformation on your own datasets to determine the optimal imputation method.
 ```{r}
-# Only input the Samples, not the compound/metabolite columns
-VIQCing::imputationTest()
+VIQCing::imputationTest("holesdummySet.txt", method="SVD", transformation = "scale", nbTest=100, sampleStart = 3)
 ```

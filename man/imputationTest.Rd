@@ -4,22 +4,19 @@
 \alias{imputationTest}
 \title{Test for the various methods}
 \usage{
-imputationTest(output = NULL, input, k = 2, method = "knn",
+imputationTest(input, output = NULL, k = 2, method = "knn",
   npcs = 3, sigma = 0.1, nbTest = 10, nTree = 30,
   na.string = "NA", missing = 0.05, missingType = "MCAR",
   transformation = "None", sampleStart = 3)
 }
 \arguments{
-\item{output}{default NULL, name of the test results file if not NULL}
-
-\item{input}{file containing the test dataset; Must contain:
+\item{input}{file containing the test dataset; Should contain:
 \itemize{
-\item a column "Compound";
-\item a column "Metabolite";
-\item and all the columns sample from <sampleStart> to the end of the file;
+\item all the columns sample from <sampleStart> to the end of the file;
 }
-the rest doesn't matter and the names are optional, as long as the column position is entered.
 *MUST BE COMPLETE (no NA values) for accurate results}
+
+\item{output}{default NULL, name of the test results file if not NULL}
 
 \item{k}{default 2, the k used for the knn imputation;}
 
