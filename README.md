@@ -214,9 +214,20 @@ result[, 1:5]
 ```
 
     ##           Compound Metabolite Courtelary Delemont Franches.Mnt
-    ## 1        Fertility         NA         82       83           92
-    ## 2      Agriculture         NA         17       45           40
-    ## 3      Examination         NA         15        6           14
-    ## 4        Education         NA         12        9            5
-    ## 5         Catholic         NA         10       85           13
-    ## 6 Infant.Mortality         NA         27       22           20
+    ## 1        Fertility         NA     81.522    83.10       92.500
+    ## 2      Agriculture         NA     17.000    45.10       39.700
+    ## 3      Examination         NA     15.000     6.00       14.148
+    ## 4        Education         NA     12.000     9.00        5.000
+    ## 5         Catholic         NA      9.960    84.84       13.156
+    ## 6 Infant.Mortality         NA     26.609    22.20       20.200
+
+#### Imputation evaluation
+
+You can use the NRMSE function to evaluate the accuracy of the
+imputation:
+
+``` r
+VIQCing::NRMSE(result[,3:dim(result)[2]], dat[,3:dim(dat)[2]])
+```
+
+    ## [1] 0.288641

@@ -99,3 +99,15 @@ holeDataset[,1:5]
 result <- VIQCing::imputation("holesdummySet.txt", method = "SVD", transformation = "scale", compound = 1, metabolite = 2, sampleStart = 3)
 result[, 1:5]
 ```
+#### Imputation evaluation
+
+You can use the NRMSE function to evaluate the accuracy of the imputation:
+```{r}
+# Only input the Samples, not the compound/metabolite columns
+VIQCing::NRMSE(result[,3:dim(result)[2]], dat[,3:dim(dat)[2]])
+```
+You can also use the imputationTest() function, wh
+```{r}
+# Only input the Samples, not the compound/metabolite columns
+VIQCing::imputationTest()
+```
