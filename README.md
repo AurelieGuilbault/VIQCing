@@ -195,26 +195,28 @@ returns the imputed Dataset
 
 If we create some holes in the previous dataset:
 
-    ##                 V1         V2         V3       V4           V5
-    ## 1         Compound Metabolite Courtelary Delemont Franches.Mnt
-    ## 2        Fertility       <NA>       <NA>     83.1         92.5
-    ## 3      Agriculture       <NA>         17     45.1         39.7
-    ## 4      Examination       <NA>         15        6         <NA>
-    ## 5        Education       <NA>         12        9            5
-    ## 6         Catholic       <NA>       9.96    84.84         <NA>
-    ## 7 Infant.Mortality       <NA>       <NA>     22.2         20.2
+    ##           Compound Metabolite Courtelary Delemont Franches.Mnt
+    ## 1        Fertility         NA         NA    83.10         92.5
+    ## 2      Agriculture         NA      17.00    45.10         39.7
+    ## 3      Examination         NA      15.00     6.00           NA
+    ## 4        Education         NA      12.00     9.00          5.0
+    ## 5         Catholic         NA       9.96    84.84           NA
+    ## 6 Infant.Mortality         NA         NA    22.20         20.2
 
 ``` r
-VIQCing::imputation("holesdummySet.txt", method = "knn", transformation = "log", compound = 1, metabolite = 2, sampleStart = 3)
+result <- VIQCing::imputation("holesdummySet.txt", method = "SVD", transformation = "scale", compound = 1, metabolite = 2, sampleStart = 3)
 ```
 
     ## [1] "saving imputated data"
 
-    ## function (x, df1, df2, ncp, log = FALSE) 
-    ## {
-    ##     if (missing(ncp)) 
-    ##         .Call(C_df, x, df1, df2, log)
-    ##     else .Call(C_dnf, x, df1, df2, ncp, log)
-    ## }
-    ## <bytecode: 0x0000000022744a58>
-    ## <environment: namespace:stats>
+``` r
+result[, 1:5]
+```
+
+    ##           Compound Metabolite Courtelary Delemont Franches.Mnt
+    ## 1        Fertility         NA         82       83           92
+    ## 2      Agriculture         NA         17       45           40
+    ## 3      Examination         NA         15        6           14
+    ## 4        Education         NA         12        9            5
+    ## 5         Catholic         NA         10       85           13
+    ## 6 Infant.Mortality         NA         27       22           20

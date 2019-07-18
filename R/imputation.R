@@ -192,7 +192,7 @@ imputation <- function(file,
   }
 
   #### Round ##########################################################################
-  myDataMatrixImputed <- round(myDataMatrixImputed)
+  myDataMatrixImputed <- round(myDataMatrixImputed,digit=3)
 
 
   #### Write the imputed data to the output files #####################################

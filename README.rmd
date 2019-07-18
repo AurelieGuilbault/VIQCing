@@ -92,10 +92,10 @@ returns the imputed Dataset
 If we create some holes in the previous dataset:
 
 ```{r echo=FALSE}
-holeDataset <- read.table("holesdummySet.txt", sep="\t")
+holeDataset <- read.table("holesdummySet.txt", sep="\t", header = TRUE)
 holeDataset[,1:5]
 ```
 ```{r}
-result <- VIQCing::imputation("holesdummySet.txt", method = "knn", transformation = "log", compound = 1, metabolite = 2, sampleStart = 3)
+result <- VIQCing::imputation("holesdummySet.txt", method = "SVD", transformation = "scale", compound = 1, metabolite = 2, sampleStart = 3)
 result[, 1:5]
 ```
