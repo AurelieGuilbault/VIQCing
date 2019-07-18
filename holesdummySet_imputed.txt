@@ -1,0 +1,7 @@
+"Compound"	"Metabolite"	"Courtelary"	"Delemont"	"Franches.Mnt"	"Moutier"	"Neuveville"	"Porrentruy"	"Broye"	"Glane"	"Gruyere"	"Sarine"	"Veveyse"	"Aigle"	"Aubonne"	"Avenches"	"Cossonay"	"Echallens"	"Grandson"	"Lausanne"	"La.Vallee"	"Lavaux"	"Morges"	"Moudon"	"Nyone"	"Orbe"	"Oron"	"Payerne"	"Paysd.enhaut"	"Rolle"	"Vevey"	"Yverdon"	"Conthey"	"Entremont"	"Herens"	"Martigwy"	"Monthey"	"St.Maurice"	"Sierre"	"Sion"	"Boudry"	"La.Chauxdfnd"	"Le.Locle"	"Neuchatel"	"Val.de.Ruz"	"ValdeTravers"	"V..De.Geneve"	"Rive.Droite"	"Rive.Gauche"
+"Fertility"	NA	29	84	94	87	78	77	85	93	83	74	88	65	68	70	63	69	73	57	55	66	66	66	58	58	73	75	73	62	59	66	76	70	78	71	80	66	93	80	71	67	74	65	71	69	36	46	44
+"Agriculture"	NA	18	46	41	38	45	36	52	69	54	46	66	63	42	62	70	74	35	20	16	74	61	56	52	55	72	59	64	62	28	51	87	86	91	79	66	77	86	64	39	9	18	19	44	20	2	34	29
+"Examination"	NA	16	7	13	13	18	10	17	15	13	17	15	22	14	20	23	19	18	27	32	20	23	15	23	21	13	15	7	17	24	16	4	8	6	13	8	10	4	14	27	30	23	36	16	26	38	17	23
+"Education"	NA	13	10	6	8	16	8	8	9	8	14	7	13	8	13	6	3	9	29	21	10	11	4	13	7	2	9	4	11	20	10	3	7	3	7	4	10	4	14	13	12	14	33	8	8	54	9	30
+"Catholic"	NA	11	86	23	35	6	92	94	98	99	92	100	10	3	5	4	25	4	13	3	4	6	6	16	5	3	6	4	9	19	7	101	101	101	100	99	100	100	98	7	20	12	18	6	10	43	51	16
+"Infant.Mortality"	NA	21	23	21	21	22	28	25	26	22	22	25	18	20	24	20	22	21	21	12	21	19	23	18	16	22	25	19	17	22	24	16	21	19	20	21	19	17	19	21	21	20	30	21	20	19	19	20

@@ -2,21 +2,100 @@
 title: "VIQCing"
 author: "Aurelie Guilbault"
 date: "17/07/2019"
-output: html_document
+output: github_document
 ---
 
-# Introduction
+## Introduction
 
 The *VIQCing* (Visualization, Imputation, Quality Control) package has been made to help processing Metabolomic Data. It contains a robust pipeline that can be adapted depending on the input type and it needs.
 
-# Download
+## Download
 
-Source code can be downloaded from github. You can use 
+Source code can be downloaded from github.
 ```
 git clone https://github.com/AurelieGuilbault/VIQCing.git
 ```
-to obtain the last update.
-You can install in Rstudio with 
-```
+
+You can install in Rstudio using: 
+```{r eval=FALSE}
 devtools::install_github("AurelieGuilbault/VIQCing") 
+```
+
+## Tutorial
+
+The data used as input usually is a LC-MS or NMR Feature Matrix, with the rows as metabolites and columns as samples. That said, as long as it looks like the following dataset, the data can be used with this package: (From the *datasets::swiss*)
+
+```{r echo=FALSE}
+d <- t(datasets::swiss)
+dat <- data.frame(dummyCompound=row.names(d), dummyMetabolite=NA, d, row.names = NULL)
+dat[,1:5]
+
+```
+
+### QC Functions
+#### quality control
+If you data contains **NA** values, you can filter the row with the qualityControl() function.  
+Produces the following files:  
+1. "QC_data.txt": Summary of the QC;  
+2. "REMOVED_QC_data.txt": Summary of the removed metabolite;    
+3. output, cleaned dataset file(optional);  
+4. "REMOVED_output.txt", the removed set of metabolite (optional)  
+
+It will also warn you about potential problems. (e.g. if a line has sd of 0 or NA)
+The function returns the cleaned dataset and QC summary.
+```{r warning=FALSE}
+#Write the data in a file
+write.table(dat, file = "dummySet.txt",sep = "\t", row.names = FALSE)
+
+result <- VIQCing::qualityControl("dummySet.txt", missing=0.2, compound=1, metabolite=2, sampleStart = 3)
+
+result$dataset[,1:5]
+result$QC
+```
+If we had a line with only **NA**, another one with all the same value and a duplicate :
+```{r warning=FALSE}
+newDat <- result$dataset
+newDat[nrow(newDat)+1,] <- 0 
+newDat[nrow(newDat)+1,] <- 1
+```
+
+```{r}
+#Write the data in a file
+write.table(newDat, file = "falsedummySet.txt",sep = "\t", row.names = FALSE)
+
+result <- VIQCing::qualityControl("falsedummySet.txt", missing=1, compound=1, metabolite=2, sampleStart = 3)
+
+result$dataset[,1:5]
+result$QC
+```
+
+#### Output customization
+
+```{r warning=FALSE}
+# Use the customisation output function:
+VIQCing::QCcustomization(result$QC, REMOVE=FALSE)
+```
+
+### Imputation
+Impute the given dataset with different method options. Produces filename_imputed.txt, containing the imputed dataset;
+
+Available imputation methods:
+
+1. "knn": From the *impute* package, use the k nearest neighboors to impute the values;  
+2. "RF": From the *missForest* package, use RandomForest algorithm to impute the values;  
+3. "QRILC": From the *imputeLCMD* package, use Quantile regression to impute the values;  
+4. "SVD": From the *pcaMethods* package, use SVDimpute algorithm as proposed by Troyanskaya et al, 2001. to impute the values;  
+5. "mean","median", ""median", "0", "HM": simple value replacement, either by the mean, median, 0 of Half minimum of the row;  
+
+returns the imputed Dataset
+
+If we create some holes in the previous dataset:
+
+```{r echo=FALSE}
+holeDataset <- read.table("holesdummySet.txt", sep="\t")
+holeDataset[,1:5]
+```
+```{r}
+result <- VIQCing::imputation("holesdummySet.txt", method = "knn", transformation = "log", compound = 1, metabolite = 2, sampleStart = 3)
+result[, 1:5]
 ```

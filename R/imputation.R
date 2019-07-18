@@ -197,8 +197,8 @@ imputation <- function(file,
 
   #### Write the imputed data to the output files #####################################
   print("saving imputated data")
-
-  write.table(data.frame(Compound=myData1$Compound, Metabolite=myData1$Metabolite, myDataMatrixImputed),
+  df <- data.frame(Compound=myData1$Compound, Metabolite=myData1$Metabolite, myDataMatrixImputed)
+  write.table(df,
               file = outputFile, row.names=FALSE,sep="\t")
 
 
