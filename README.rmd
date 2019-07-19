@@ -2,7 +2,10 @@
 title: "VIQCing"
 author: "Aurelie Guilbault"  
 date: "17/07/2019"
-output: github_document
+output:  
+  github_document:  
+    toc: true  
+    toc_depth: 4  
 ---
 
 ## Introduction
@@ -77,6 +80,7 @@ VIQCing::QCcustomization(result$QC, REMOVE=FALSE)
 ```
 
 ### Imputation
+#### Imputation of incomplete dataset
 Impute the given dataset with different method options. Produces filename_imputed.txt, containing the imputed dataset;
 
 Available imputation methods:

@@ -3,6 +3,22 @@ VIQCing
 Aurelie Guilbault
 17/07/2019
 
+  - [Introduction](#introduction)
+  - [Download](#download)
+  - [Tutorial](#tutorial)
+      - [QC Functions](#qc-functions)
+          - [quality control](#quality-control)
+          - [Output customization](#output-customization)
+      - [Imputation](#imputation)
+          - [Imputation of incomplete
+            dataset](#imputation-of-incomplete-dataset)
+          - [Imputation evaluation](#imputation-evaluation)
+      - [Data Visualization](#data-visualization)
+          - [Violin Plots](#violin-plots)
+          - [Correlation](#correlation)
+  - [Contact and feedback](#contact-and-feedback)
+  - [Citation](#citation)
+
 ## Introduction
 
 The *VIQCing* (Visualization, Imputation, Quality Control) package has
@@ -175,6 +191,8 @@ VIQCing::QCcustomization(result$QC, REMOVE=FALSE)
 
 ### Imputation
 
+#### Imputation of incomplete dataset
+
 Impute the given dataset with different method options. Produces
 filename\_imputed.txt, containing the imputed dataset;
 
@@ -260,7 +278,7 @@ VIQCing::imputationTest("dummySet.txt", method="SVD", transformation = "scale", 
     ## [1] " Test run # 15"
 
     ##      Method missing_proportion transformation NRMSE              
-    ## [1,] "SVD"  "0.05"             "scale"        "0.147771935389037"
+    ## [1,] "SVD"  "0.05"             "scale"        "0.128993830518517"
 
 ### Data Visualization
 
