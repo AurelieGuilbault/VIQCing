@@ -1,0 +1,4 @@
+metabolite1	metabolite2	cor	pvalue
+Examination_NA	Fertility_NA	-0.660902996352354	4.28152723941366e-07
+Education_NA	Agriculture_NA	-0.650463814145816	7.45726927542378e-07
+Education_NA	Examination_NA	0.674603831406147	1.99854333748917e-07

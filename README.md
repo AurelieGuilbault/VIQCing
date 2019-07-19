@@ -260,7 +260,7 @@ VIQCing::imputationTest("dummySet.txt", method="SVD", transformation = "scale", 
     ## [1] " Test run # 15"
 
     ##      Method missing_proportion transformation NRMSE              
-    ## [1,] "SVD"  "0.05"             "scale"        "0.112059956032412"
+    ## [1,] "SVD"  "0.05"             "scale"        "0.147771935389037"
 
 ### Data Visualization
 
@@ -280,7 +280,7 @@ VIQCing::violinPlotQC("dummySet.txt", na=TRUE, compound=1, metabolite=2, sampleS
     ## [1] "Plotting"
     ## [1] "Saving PDF file"
 
-![dummySet.pdf](dummySet.jpg)
+![ViolinPlotQC](dummySet.jpg)
 
 ##### Violin Plot to compare imputed data with original data
 
@@ -296,4 +296,76 @@ VIQCing::violinPlotImp("holesdummySet.txt", "holesdummySet_imputed.txt",na=TRUE,
     ## [1] "Plotting"
     ## [1] "Saving PDF file"
 
-![dummySet.pdf](holesdummySet_Imputed.jpg)
+![ViolinPlotImp](holesdummySet_Imputed.jpg)
+
+#### Correlation
+
+##### Matrix and Tree
+
+It is possible to build a correlation matrix and its associated
+correlation tree for the given dataset. Both plots are optional and the
+correlation test can be decided.  
+The function also produces:  
+1\. “filename.pdf”, containing the asked plots;  
+2\. “filname\_pairs.txt”, containing the correlation pairs  
+returns the correlation matrix “r” and the p-value matrix
+“P”
+
+``` r
+VIQCing::corMatrix("dummySet.txt", na=TRUE, compound=1, metabolite=2, sampleStart=3, testType="spearman", textSize = 5)
+```
+
+    ## Warning in VIQCing::corMatrix("dummySet.txt", na = TRUE, compound = 1, metabolite = 2, : Application conditions for Spearman's Correlation test
+    ##        - Independent samples -> assumed
+
+    ##                     Fertility_NA Agriculture_NA Examination_NA
+    ## Fertility_NA                1.00           0.24          -0.66
+    ## Agriculture_NA              0.24           1.00          -0.60
+    ## Examination_NA             -0.66          -0.60           1.00
+    ## Education_NA               -0.44          -0.65           0.67
+    ## Catholic_NA                 0.41           0.29          -0.48
+    ## Infant.Mortality_NA         0.44          -0.15          -0.06
+    ##                     Education_NA Catholic_NA Infant.Mortality_NA
+    ## Fertility_NA               -0.44        0.41                0.44
+    ## Agriculture_NA             -0.65        0.29               -0.15
+    ## Examination_NA              0.67       -0.48               -0.06
+    ## Education_NA                1.00       -0.14               -0.02
+    ## Catholic_NA                -0.14        1.00                0.07
+    ## Infant.Mortality_NA        -0.02        0.07                1.00
+    ## 
+    ## n= 47 
+    ## 
+    ## 
+    ## P
+    ##                     Fertility_NA Agriculture_NA Examination_NA
+    ## Fertility_NA                     0.1003         0.0000        
+    ## Agriculture_NA      0.1003                      0.0000        
+    ## Examination_NA      0.0000       0.0000                       
+    ## Education_NA        0.0018       0.0000         0.0000        
+    ## Catholic_NA         0.0039       0.0491         0.0007        
+    ## Infant.Mortality_NA 0.0021       0.3073         0.6929        
+    ##                     Education_NA Catholic_NA Infant.Mortality_NA
+    ## Fertility_NA        0.0018       0.0039      0.0021             
+    ## Agriculture_NA      0.0000       0.0491      0.3073             
+    ## Examination_NA      0.0000       0.0007      0.6929             
+    ## Education_NA                     0.3328      0.8992             
+    ## Catholic_NA         0.3328                   0.6588             
+    ## Infant.Mortality_NA 0.8992       0.6588
+
+![CorrelationMatrix](dummySet_Correlation-1.jpg)
+![CorrelationTree](dummySet_Correlation-2.jpg)
+
+Output file “dummySet\_pairs.txt” :
+
+    ##      metabolite1    metabolite2        cor       pvalue
+    ## 1 Examination_NA   Fertility_NA -0.6609030 4.281527e-07
+    ## 2   Education_NA Agriculture_NA -0.6504638 7.457269e-07
+    ## 3   Education_NA Examination_NA  0.6746038 1.998543e-07
+
+## Contact and feedback
+
+Potato
+
+## Citation
+
+potato
