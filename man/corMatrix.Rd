@@ -28,6 +28,10 @@ entered.;}
 
 \item{landscape}{default FALSE, orientation of the pdf file;}
 
+\item{dendrogram}{default TRUE, presence of the correlation dendrogram;}
+
+\item{heatmap}{default TRUE, presence of the correlation matrix heatmap;}
+
 \item{compound}{default NULL, position of the compound column if named otherwise;}
 
 \item{metabolite}{default NULL, position of the metabolite column if named otherwise;}

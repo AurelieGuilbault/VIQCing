@@ -113,8 +113,29 @@ VIQCing::imputationTest("dummySet.txt", method="SVD", transformation = "scale", 
 
 ### Data Visualization
 #### Violin Plots
+##### Violin Plot on starting data
 It is possible to visualize the distribution of your metabolomic data with Violin Plots. It will produce a .pdf file.
 
 ```{r}
 VIQCing::violinPlotQC("dummySet.txt", na=TRUE, compound=1, metabolite=2, sampleStart = 3)
+```
+![dummySet.pdf](dummySet.jpg)
+
+##### Violin Plot to compare imputed data with original data
+You can use violinPlotImp() to compare the distribution of your data before and after imputation:
+
+```{r warning=FALSE}
+VIQCing::violinPlotImp("holesdummySet.txt", "holesdummySet_imputed.txt",na=TRUE, compound=1, metabolite=2, sampleStart = 3, compoundImp = 1, metaboliteImp = 2, sampleStartImp = 3)
+```
+![dummySet.pdf](holesdummySet_Imputed.jpg)
+
+#### Correlation 
+##### Matrix and Tree
+It is possible to buld a correlation matrix and its associated correlation tree for the given dataset. Both plots are optional and the correlation test can be decided.  
+The function also produces:
+1. "filename.pdf", containing the asked plots;  
+2. "filname_pairs.txt", containing the correlation pairs  
+returns the correlation matrix "r" and the p-value matrix "P"
+```{r}
+VIQCing::corMatrix("dummySet.txt", na=TRUE, compound=1, metabolite=2, sampleStart=3, testType="spearman")
 ```

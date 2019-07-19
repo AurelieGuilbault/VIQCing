@@ -35,6 +35,8 @@ library(gplots)
 #' @param output default <dataset filename>.pdf, name of the pdf file;
 #' @param na default FALSE, FALSE removes the untargeted meatabolite;
 #' @param landscape default FALSE, orientation of the pdf file;
+#' @param heatmap default TRUE, presence of the correlation matrix heatmap;
+#' @param dendrogram default TRUE, presence of the correlation dendrogram; 
 #' @param compound default NULL, position of the compound column if named otherwise;
 #' @param metabolite default NULL, position of the metabolite column if named otherwise;
 #' @param sampleStart default 3, 1st column of the actual data.

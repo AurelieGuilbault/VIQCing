@@ -260,11 +260,13 @@ VIQCing::imputationTest("dummySet.txt", method="SVD", transformation = "scale", 
     ## [1] " Test run # 15"
 
     ##      Method missing_proportion transformation NRMSE              
-    ## [1,] "SVD"  "0.05"             "scale"        "0.118484459092669"
+    ## [1,] "SVD"  "0.05"             "scale"        "0.112059956032412"
 
 ### Data Visualization
 
 #### Violin Plots
+
+##### Violin Plot on starting data
 
 It is possible to visualize the distribution of your metabolomic data
 with Violin Plots. It will produce a .pdf
@@ -277,3 +279,21 @@ VIQCing::violinPlotQC("dummySet.txt", na=TRUE, compound=1, metabolite=2, sampleS
     ## [1] "Computing stats"
     ## [1] "Plotting"
     ## [1] "Saving PDF file"
+
+![dummySet.pdf](dummySet.jpg)
+
+##### Violin Plot to compare imputed data with original data
+
+You can use violinPlotImp() to compare the distribution of your data
+before and after
+imputation:
+
+``` r
+VIQCing::violinPlotImp("holesdummySet.txt", "holesdummySet_imputed.txt",na=TRUE, compound=1, metabolite=2, sampleStart = 3, compoundImp = 1, metaboliteImp = 2, sampleStartImp = 3)
+```
+
+    ## [1] "Computing stats"
+    ## [1] "Plotting"
+    ## [1] "Saving PDF file"
+
+![dummySet.pdf](holesdummySet_Imputed.jpg)
