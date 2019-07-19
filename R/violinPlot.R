@@ -24,7 +24,7 @@ library(scales)
 #' the rest doesn't matter and the names are optional, as long as the column position is entered.
 #'
 #' @param output default <input>.pdf, name of the final pdf file;
-#' @param na default FALSE, FALSE removes the untargeted meatabolite from the plots;
+#' @param na default FALSE, FALSE removes the untargeted (NA) metabolite from the plots;
 #' @param numberByGraph default 1, number of metabolite violin plots by graph window;
 #' @param colNumberByPage default 5, number of column in the output pdf file;
 #' @param rowNumberByPage default 2, number of row in the output pdf file;
@@ -309,7 +309,7 @@ violinPlotQC<- function(input,
 #'the rest doesn't matter and the names are optional, as long as the column position is entered.
 #'
 #' @param output default <input>.pdf, name of the final pdf file;
-#' @param na default FALSE, FALSE removes the untargeted meatabolite from the plots;
+#' @param na default FALSE, FALSE removes the untargeted (NA) metabolite from the plots;
 #' @param numberByGraph default 1, number of metabolite violin plots by graph window;
 #' @param colNumberByPage default 5, number of column in the output pdf file;
 #' @param rowNumberByPage default 2, number of row in the output pdf file;

@@ -227,7 +227,53 @@ You can use the NRMSE function to evaluate the accuracy of the
 imputation:
 
 ``` r
+# Only input the Samples, not the compound/metabolite columns
 VIQCing::NRMSE(result[,3:dim(result)[2]], dat[,3:dim(dat)[2]])
 ```
 
     ## [1] 0.288641
+
+You can also use the imputationTest() function, which will produce a
+more complete output of the NRMSE when asked. It is advised to test most
+of the methods and transformation on your own datasets to determine the
+optimal imputation
+method.
+
+``` r
+VIQCing::imputationTest("dummySet.txt", method="SVD", transformation = "scale", nbTest=15, sampleStart = 3)
+```
+
+    ## [1] " Test run # 1"
+    ## [1] " Test run # 2"
+    ## [1] " Test run # 3"
+    ## [1] " Test run # 4"
+    ## [1] " Test run # 5"
+    ## [1] " Test run # 6"
+    ## [1] " Test run # 7"
+    ## [1] " Test run # 8"
+    ## [1] " Test run # 9"
+    ## [1] " Test run # 10"
+    ## [1] " Test run # 11"
+    ## [1] " Test run # 12"
+    ## [1] " Test run # 13"
+    ## [1] " Test run # 14"
+    ## [1] " Test run # 15"
+
+    ##      Method missing_proportion transformation NRMSE              
+    ## [1,] "SVD"  "0.05"             "scale"        "0.118484459092669"
+
+### Data Visualization
+
+#### Violin Plots
+
+It is possible to visualize the distribution of your metabolomic data
+with Violin Plots. It will produce a .pdf
+file.
+
+``` r
+VIQCing::violinPlotQC("dummySet.txt", na=TRUE, compound=1, metabolite=2, sampleStart = 3)
+```
+
+    ## [1] "Computing stats"
+    ## [1] "Plotting"
+    ## [1] "Saving PDF file"

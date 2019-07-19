@@ -21,7 +21,7 @@ the rest doesn't matter and the names are optional, as long as the column positi
 
 \item{output}{default <input>.pdf, name of the final pdf file;}
 
-\item{na}{default FALSE, FALSE removes the untargeted meatabolite from the plots;}
+\item{na}{default FALSE, FALSE removes the untargeted (NA) metabolite from the plots;}
 
 \item{numberByGraph}{default 1, number of metabolite violin plots by graph window;}
 
