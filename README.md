@@ -1,7 +1,5 @@
 VIQCing
 ================
-Aurelie Guilbault
-17/07/2019
 
   - [Introduction](#introduction)
   - [Download](#download)
@@ -278,7 +276,7 @@ VIQCing::imputationTest("dummySet.txt", method="SVD", transformation = "scale", 
     ## [1] " Test run # 15"
 
     ##      Method missing_proportion transformation NRMSE              
-    ## [1,] "SVD"  "0.05"             "scale"        "0.128993830518517"
+    ## [1,] "SVD"  "0.05"             "scale"        "0.123058948691335"
 
 ### Data Visualization
 

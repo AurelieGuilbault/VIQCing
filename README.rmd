@@ -1,7 +1,5 @@
 ---
 title: "VIQCing"
-author: "Aurelie Guilbault"  
-date: "17/07/2019"
 output:  
   github_document:  
     toc: true  
