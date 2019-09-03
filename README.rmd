@@ -148,9 +148,3 @@ Output file "dummySet_pairs.txt" :
 ```{r echo=FALSE}
 read.table("dummySet_pairs.txt", sep = "\t", header = TRUE)
 ```
-
-## Contact and feedback
-Potato  
-
-## Citation
-potato  

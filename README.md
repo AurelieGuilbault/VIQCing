@@ -377,11 +377,3 @@ Output file “dummySet\_pairs.txt” :
     ## 1 Examination_NA   Fertility_NA -0.6609030 4.281527e-07
     ## 2   Education_NA Agriculture_NA -0.6504638 7.457269e-07
     ## 3   Education_NA Examination_NA  0.6746038 1.998543e-07
-
-## Contact and feedback
-
-Potato
-
-## Citation
-
-potato
